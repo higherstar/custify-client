@@ -1,0 +1,43 @@
+<div class="stage-card">
+  <div class="card-header">
+    <h3 class="title">{{ stage.name }}</h3>
+    <div class="actions">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon aria-hidden="false">menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onDeleteStage(stage.id)">Remove</button>
+        <button mat-menu-item (click)="openStageDialog()">Edit</button>
+      </mat-menu>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div
+      cdkDropList
+      [cdkDropListData]="companies"
+      (cdkDropListDropped)="drop($event)"
+      [id]="stage.id"
+    >
+      <div *ngFor="let company of companies" class="company-card" cdkDrag>
+        <p class="company-name">{{ company.name }}</p>
+        <div class="actions">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon aria-hidden="false">more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onDeleteCompany(company.id)">Remove</button>
+            <button mat-menu-item (click)="openCompanyDialog(company)">Edit</button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button mat-stroked-button (click)="openCompanyDialog()">
+      <mat-icon>add</mat-icon>
+      Add company
+    </button>
+  </div>
+</div>

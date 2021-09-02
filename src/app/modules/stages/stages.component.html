@@ -1,0 +1,15 @@
+<div class="stages" cdkDropListGroup>
+  <div class="stage-card-wrapper" *ngFor="let stage of stages$ | async; let i = index">
+    <app-stage-card
+      [stage]="stage"
+    ></app-stage-card>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="openStageDialog()"
+  >
+    <mat-icon>add</mat-icon>
+    Add new stage
+  </button>
+</div>

@@ -1,0 +1,11 @@
+.stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 30px;
+  padding: 20px;
+  align-items: flex-start;
+
+  .stage-card-wrapper {
+    flex: 1;
+  }
+}
